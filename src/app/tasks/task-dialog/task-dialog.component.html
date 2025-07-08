@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Новая задача</h2>
+<mat-dialog-content>
+  <app-task-form (formStatus)="isFormValid = $event" (submitted)="onSubmit($event)"></app-task-form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Отмена</button>
+  <button mat-button color="primary"
+          [disabled]="!isFormValid"
+          type="submit"
+          (click)="onSave()"
+          >
+    Сохранить</button>
+</mat-dialog-actions>

@@ -1,0 +1,90 @@
+:root {
+  // Основные цвета
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+
+  // цвета
+  --success-color: #388e3c;
+  --warning-color: #f57c00;
+  --info-color: #1976d2;
+
+  // Цвета с прозрачностью
+  --primary-color-light: rgba(102, 126, 234, 0.1);
+  --primary-color-medium: rgba(102, 126, 234, 0.2);
+  --primary-color-strong: rgba(102, 126, 234, 0.6);
+  --success-color-light: rgba(56, 142, 60, 0.1);
+  --success-color-medium: rgba(56, 142, 60, 0.2);
+  --warning-color-light: rgba(245, 124, 0, 0.1);
+  --warning-color-medium: rgba(245, 124, 0, 0.2);
+  --info-color-light: rgba(25, 118, 210, 0.1);
+  --text-muted-light: rgba(153, 153, 153, 0.1);
+
+  // Текстовые цвета
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-muted: #999;
+
+  // Фоновые цвета
+  --background-light: rgba(255, 255, 255, 0.95);
+  --background-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+
+
+  // ТЕНИ
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.2);
+
+  // Специальные тени
+  --shadow-primary: 0 8px 25px rgba(102, 126, 234, 0.3);
+
+
+  // ОТСТУПЫ
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  // РАЗМЕРЫ
+  // Радиусы
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-xl: 20px;
+
+  // шрифты
+  --font-size-xs: 0.75rem;    // 12px
+  --font-size-sm: 0.875rem;   // 14px
+  --font-size-md: 1rem;       // 16px
+  --font-size-lg: 1.125rem;   // 18px
+  --font-size-xl: 1.25rem;    // 20px
+  --font-size-xxl: 1.5rem;    // 24px
+  --font-size-xxxl: 2rem;     // 32px
+
+  // иконки
+  --icon-size-md: 24px;
+  --icon-size-sm: 20px;
+  --icon-size-xxl: 64px;
+
+  // Размеры декоративных элементов
+  --decorator-width: 4px;
+  --decorator-height: 20px;
+
+  // Максимальные ширины
+  --max-width-md: 800px;
+  --max-width-lg: 1200px;
+
+  // Процентные ширины
+  --width-30: 30%;
+
+  // Веса шрифтов
+  --font-weight-light: 300;
+  --font-weight-medium: 500;
+
+  // АНИМАЦИИ
+  --transition-normal: 0.3s ease;
+
+}
+
+
+
+

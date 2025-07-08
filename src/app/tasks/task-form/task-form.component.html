@@ -1,0 +1,21 @@
+<form
+  [formGroup]="taskForm"
+  class="task-form"
+  (ngSubmit)="submit()"
+>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Название задачи</mat-label>
+    <input matInput formControlName="title" placeholder="Введите название" />
+    @if (taskForm.get('title')?.hasError('required')) {
+      <mat-error>
+        Обязательное поле
+      </mat-error>
+    }
+
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Описание задачи</mat-label>
+    <textarea matInput formControlName="description" placeholder="Введите описание"></textarea>
+  </mat-form-field>
+</form>

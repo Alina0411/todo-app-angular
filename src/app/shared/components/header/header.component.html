@@ -1,0 +1,25 @@
+<div class="header" [ngClass]="customClass">
+  <h1>{{ config.title }}</h1>
+
+  @if (showFilter) {
+    <app-filter (filterChange)="onFilterStatusChanged($event)"></app-filter>
+  }
+
+  @if (config.showAddButton) {
+    <button mat-fab
+            color="primary"
+            (click)="openTaskDialog.emit()"
+            class="add-button">
+      <mat-icon>add</mat-icon>
+    </button>
+  }
+  @if (config.showBackButton) {
+    <button mat-fab
+            color="primary"
+            (click)="goBack.emit()"
+            class="add-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  }
+
+</div>

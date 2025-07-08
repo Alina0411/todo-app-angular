@@ -1,0 +1,11 @@
+
+::ng-deep .mat-mdc-dialog-container .mat-mdc-dialog-title + .mat-mdc-dialog-content {
+  padding-top: var(--spacing-sm) !important;
+}
+
+.mat-mdc-dialog-container .mat-mdc-dialog-title {
+  margin-bottom: var(--spacing-md);
+}
+
+
+

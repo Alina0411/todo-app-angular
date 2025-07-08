@@ -1,0 +1,76 @@
+<div class="task-detail-container">
+  <app-header
+    (goBack)="viewTasks()"
+    [config]="headerConfig"
+    [customClass]="'header-reverse'"
+  ></app-header>
+
+  @if (task) {
+    <div class="task-detail-content">
+      <mat-card class="task-card">
+        <mat-card-header>
+          <mat-card-title class="task-title">
+            {{ task.title }}
+          </mat-card-title>
+          <mat-card-subtitle class="task-subtitle">
+            Задача #{{ task.id }}
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          @if (task.description) {
+            <div class="task-description">
+              <h3>Описание:</h3>
+              <p>{{ task.description }}</p>
+            </div>
+          } @else {
+            <div class="no-description">
+              <mat-icon class="no-description-icon">info</mat-icon>
+              <p>У этой задачи нет описания</p>
+            </div>
+          }
+
+          <div class="task-status-section">
+            <h3>Статус:</h3>
+            <div class="status-badge" [class.completed]="task.status === TaskStatus.Completed">
+              <mat-icon class="status-icon">
+                {{ task.status === TaskStatus.Completed ? 'check_circle' : 'pending' }}
+              </mat-icon>
+              <span>{{ task.status | statusInfoText }}</span>
+            </div>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions class="task-actions">
+          <button
+            mat-raised-button
+            color="warn"
+            [color]="task.status === TaskStatus.Completed ? 'warn' : 'primary'"
+            (click)="toggleTaskStatus()"
+            class="action-button"
+          >
+            <mat-icon>
+              {{ task.status === TaskStatus.Completed ? 'undo' : 'check' }}
+            </mat-icon>
+            {{ task.status === TaskStatus.Completed ? 'Отменить выполнение' : 'Отметить как выполненное' }}
+          </button>
+
+          <button
+            mat-stroked-button
+            color="warn"
+            (click)="deleteTask()"
+            class="action-button"
+          >
+            <mat-icon>delete</mat-icon>
+            Удалить задачу
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  } @else {
+    <div class="loading-state">
+      <mat-spinner></mat-spinner>
+      <p>Загрузка задачи...</p>
+    </div>
+  }
+</div>

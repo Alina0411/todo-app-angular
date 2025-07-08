@@ -1,0 +1,80 @@
+<div class="container">
+  <app-header
+    (openTaskDialog)="openAddTaskDialog()"
+    [config]="headerConfig"
+    [showFilter]="true"
+    (statusChanged)="onStatusFilterChange($event)"
+
+  ></app-header>
+
+  <div class="tasks-content">
+    @if ((filteredTasks.length === 0)) {
+      @if (getEmptyStateMessage(); as emptyState) {
+        <div class="empty-state">
+          <mat-icon class="empty-icon" [class]="emptyState.icon">{{ emptyState.icon }}</mat-icon>
+          <h3>{{ emptyState.title }}</h3>
+          <p>{{ emptyState.description }}</p>
+        </div>
+      }
+    }
+
+    <mat-list role="list" class="task-list">
+      @for (task of filteredTasks; track task.id) {
+        <mat-list-item role="listitem" class="task-item">
+          <div class="task-content">
+            <div class="task-checkbox">
+              <mat-checkbox
+                [checked]="task.status === TaskStatus.Completed"
+                (change)="onToggleStatus(task)"
+                [attr.aria-label]="'Отметить задачу как ' + (task.status === TaskStatus.Completed ? 'не выполненную' : 'выполненную')"
+              >
+                <span class="task-title" [class.completed]="task.status === TaskStatus.Completed">
+                  {{ task.title }}
+                </span>
+              </mat-checkbox>
+            </div>
+
+            @if (task.description) {
+              <span class="task-description">
+                {{ task.description }}
+              </span>
+            } @else {
+              <span class="task-description"></span>
+            }
+            <div class="task-info">
+              <span class="task-status" [class.completed]="task.status === TaskStatus.Completed">
+              {{ task.status | statusInfoText }}
+            </span>
+
+              <div class="task-actions">
+                <button
+                  mat-mini-fab
+                  color="warn"
+                  aria-label="Удалить"
+                  (click)="deleteTask(task.id, $event)"
+                  class="action-button"
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button
+                  mat-mini-fab
+                  color="primary"
+                  aria-label="Подробнее"
+                  (click)="viewTaskDetails(task.id)"
+                  class="action-button"
+                >
+                  <mat-icon>more_horiz</mat-icon>
+                </button>
+              </div>
+
+            </div>
+
+
+          </div>
+        </mat-list-item>
+      }
+    </mat-list>
+  </div>
+</div>
+
+

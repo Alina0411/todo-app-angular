@@ -1,59 +1,61 @@
-# TodoApp
+# ToDo App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+Современное приложение для управления задачами на Angular 19.
 
-## Development server
+## Функции
 
-To start a local development server, run:
+- ✅ Просмотр, добавление, удаление задач
+- 🔍 Фильтрация по статусу (Все/Выполненные/Не выполненные)
+- 📱 Адаптивный дизайн
+- 💾 Локальное хранение данных
 
-```bash
-ng serve
-```
+## Технологии
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular 19** - основной фреймворк
+- **TypeScript** - типизация
+- **Angular Material** - UI компоненты
+- **RxJS** - реактивное программирование
+- **SCSS** - стили
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Установка
 
 ```bash
-ng generate --help
+npm install
+npm start
 ```
 
-## Building
 
-To build the project run:
+## Структура
 
-```bash
-ng build
+```
+src/app/
+├── core/
+│   ├── models/task.model.ts
+│   └── services/task.service.ts
+├── shared/
+│   ├── components/
+│   │   ├── filter/
+│   │   └── header/
+│   └── pipes/
+└── tasks/
+    ├── task-list/
+    ├── task-detail/
+    └── task-dialog/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Архитектура
+- **Standalone Components** - современный подход Angular
+- **Service Pattern** - управление данными через TaskService
+- **Reactive Forms** - формы с валидацией
+- **Component Communication** - взаимодействие через события
 
-## Running unit tests
+## Особенности
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Чистая архитектура с разделением ответственности
+- Переиспользуемые компоненты
+- Оптимизированная производительность
+- Современный UI с анимациями
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Разработано как тестовое задание для демонстрации навыков Angular разработки.
