@@ -38,9 +38,8 @@
               <span class="task-description">
                 {{ task.description }}
               </span>
-            } @else {
-              <span class="task-description"></span>
             }
+
             <div class="task-info">
               <span class="task-status" [class.completed]="task.status === TaskStatus.Completed">
               {{ task.status | statusInfoText }}

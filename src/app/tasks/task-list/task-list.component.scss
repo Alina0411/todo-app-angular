@@ -1,9 +1,15 @@
+@import '../../../styles/variables.scss';
+
 .task-list-container {
   max-width: var(--max-width-md);
   margin: 0 auto;
   padding: var(--spacing-lg);
   min-height: 100vh;
   background: var(--background-gradient);
+
+  @include response-sm {
+    padding: var(--spacing-md);
+  }
 }
 
 .tasks-content {
@@ -15,18 +21,28 @@
     box-shadow: var(--shadow-md);
     backdrop-filter: blur(10px);
 
+    @include response-sm {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
     .empty-icon {
       font-size: var(--icon-size-xxl);
       width: var(--icon-size-xxl);
       height: var(--icon-size-xxl);
       color: var(--text-muted);
       margin-bottom: var(--spacing-lg);
-      
+
+      @include response-sm {
+        font-size: var(--icon-size-xl);
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+      }
+
       // Специальные цвета для разных состояний
       &.celebration {
         color: var(--success-color);
       }
-      
+
       &.task_alt {
         color: var(--info-color);
       }
@@ -36,12 +52,20 @@
       margin: 0 0 var(--spacing-sm) 0;
       font-weight: var(--font-weight-light);
       color: var(--text-secondary);
+
+      @include response-sm {
+        font-size: var(--font-size-lg);
+      }
     }
 
     p {
       margin: 0;
       font-size: var(--font-size-md);
       color: var(--text-muted);
+
+      @include response-sm {
+        font-size: var(--font-size-sm);
+      }
     }
   }
 }
@@ -125,7 +149,7 @@
       font-weight: var(--font-weight-medium);
       background: var(--info-color-light);
       color: var(--info-color);
-      width: 120px;
+      width: 80px;
 
       &.completed {
         background: var(--success-color-light);
@@ -141,6 +165,7 @@
 
     .action-button {
       transition: all var(--transition-normal);
+      box-shadow: var(--shadow-primary);
 
       &:hover {
         transform: scale(1.1);
@@ -148,11 +173,22 @@
     }
   }
 
-
-  @media  screen and (max-width: var(--breakpoint-md)) {
+  @include response-sm {
+    --mdc-list-list-item-one-line-container-height: 100%;
     .task-content {
       display: flex;
       flex-direction: column;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+
+      .task-description {
+        width: 100%;
+      }
+
+      .task-info {
+        justify-content: space-between;
+        width: 100%;
+      }
     }
   }
 }

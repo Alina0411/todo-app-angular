@@ -63,6 +63,7 @@
   // иконки
   --icon-size-md: 24px;
   --icon-size-sm: 20px;
+  --icon-size-xl: 48px;
   --icon-size-xxl: 64px;
 
   // Размеры декоративных элементов
@@ -82,8 +83,19 @@
 
   // АНИМАЦИИ
   --transition-normal: 0.3s ease;
-
 }
+
+// Брекпоинты
+$breakpoint-sm: 576px;
+
+@mixin response-sm {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+
+
 
 
 
